@@ -1,7 +1,8 @@
 // querySelector variables:
+var receiveMessageBtn = document.querySelector('button');
+var messageDisplayBox = document.querySelector('#message-display');
 
 // data models:
-
 var affirmations = [
   'I forgive myself and set myself free.',
   'I believe I can be all that I want to be.',
@@ -39,5 +40,9 @@ var mantras = [
 // other variables:
 
 // event listeners:
+receiveMessageBtn.addEventListener('click', decideMessageType);
 
 // functions and event handlers:
+function decideMessageType() {
+  console.log('the button has been clicked!');
+};
