@@ -3,6 +3,7 @@ var receiveMessageBtn = document.querySelector('button');
 var messageDisplayBox = document.querySelector('#message-display');
 var affirmSelect = document.querySelector('#affirmation-radio');
 var mantraSelect = document.querySelector('#mantra-radio');
+var clearMessageBtn = document.querySelector('#clear-button');
 
 // data models:
 var affirmations = [
@@ -43,10 +44,13 @@ var mantras = [
 
 // event listeners:
 receiveMessageBtn.addEventListener('click', decideMessageType);
+clearMessageBtn.addEventListener('click', removeMessage);
 
 // functions and event handlers:
 function decideMessageType() {
-  if (affirmSelect.checked) {
+  if (!affirmSelect.checked && !mantraSelect.checked) {
+    window.alert("Slow down. You must first select either 'affirmation' or 'mantra' to receive a message!");
+  } else if (affirmSelect.checked) {
     returnRandomAffirm();
   } else if (mantraSelect.checked) {
     returnRandomMantra();
@@ -59,8 +63,15 @@ function getRandomIndex(array) {
 
 function returnRandomAffirm() {
   messageDisplayBox.innerHTML = `<p>${affirmations[getRandomIndex(affirmations)]}</p>`;
+  clearMessageBtn.classList.remove('hidden');
 };
 
 function returnRandomMantra() {
   messageDisplayBox.innerHTML = `<p>${mantras[getRandomIndex(mantras)]}</p>`;
+  clearMessageBtn.classList.remove('hidden');
+};
+
+function removeMessage() {
+  messageDisplayBox.innerHTML = `<img src="./assets/meditate.svg" alt="Meditation Icon">`;
+  clearMessageBtn.classList.add('hidden');
 };
