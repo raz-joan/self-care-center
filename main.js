@@ -79,6 +79,8 @@ function deleteMessage() {
   var answer = window.confirm("Woah! Are you sure you want to delete this message? You will not be able to see it again!");
   if (answer) {
     console.log('confirm that okay means yes delete.')
+    var currentMessage = messageDisplayBox.firstElementChild.innerText;
+    console.log(currentMessage);
   } else {
     console.log('confirm that cancel means never mind - do nothing.')
   }
