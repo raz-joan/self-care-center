@@ -70,9 +70,13 @@ button {
   background-color: #134d71;
   color: #ffffff;
   border-radius: 5px;
-  padding: 3% 25% 3% 25%;
+  padding: 3% 25%;
   cursor: pointer;
   white-space: nowrap;
+}
+
+#clear-button {
+  padding: 0.5% 2.5%;
 }
 
 input {
@@ -81,4 +85,8 @@ input {
 
 img {
   width: 8%;
+}
+
+.hidden {
+  display: none;
 }
