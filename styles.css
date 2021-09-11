@@ -54,7 +54,6 @@ body {
 .radio-buttons {
   font-style: italic;
   width: 70%;
-  margin-left: 10%;
   margin-bottom: 2%;
   display: flex;
   flex-direction: row;
