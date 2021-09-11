@@ -1,6 +1,8 @@
 // querySelector variables:
 var receiveMessageBtn = document.querySelector('button');
 var messageDisplayBox = document.querySelector('#message-display');
+var affirmSelect = document.querySelector('#affirmation-radio');
+var mantraSelect = document.querySelector('#mantra-radio');
 
 // data models:
 var affirmations = [
@@ -44,5 +46,13 @@ receiveMessageBtn.addEventListener('click', decideMessageType);
 
 // functions and event handlers:
 function decideMessageType() {
-  console.log('the button has been clicked!');
+  if (affirmSelect.checked) {
+    returnRandomAffirm();
+  } else if (mantraSelect.checked) {
+    returnRandomMantra();
+  }
+};
+
+function getRandomIndex(array) {
+  return Math.floor(Math.random() * array.length);
 };
