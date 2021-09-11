@@ -46,7 +46,9 @@ receiveMessageBtn.addEventListener('click', decideMessageType);
 
 // functions and event handlers:
 function decideMessageType() {
-  if (affirmSelect.checked) {
+  if (!affirmSelect.checked && !mantraSelect.checked) {
+    window.alert("Slow down. You must first select either 'affirmation' or 'mantra' to receive a message!");
+  } else if (affirmSelect.checked) {
     returnRandomAffirm();
   } else if (mantraSelect.checked) {
     returnRandomMantra();
