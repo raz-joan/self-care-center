@@ -1,9 +1,10 @@
 // querySelector variables:
-var receiveMessageBtn = document.querySelector('button');
+var receiveMessageBtn = document.querySelector('#receive-button');
 var messageDisplayBox = document.querySelector('#message-display');
 var affirmSelect = document.querySelector('#affirmation-radio');
 var mantraSelect = document.querySelector('#mantra-radio');
 var clearMessageBtn = document.querySelector('#clear-button');
+var deleteMessageBtn = document.querySelector('#delete-button');
 
 // data models:
 var affirmations = [
@@ -44,16 +45,17 @@ var mantras = [
 
 // event listeners:
 receiveMessageBtn.addEventListener('click', decideMessageType);
-clearMessageBtn.addEventListener('click', removeMessage);
+clearMessageBtn.addEventListener('click', replaceMessageWithIcon);
+deleteMessageBtn.addEventListener('click', confirmDeleteMessage);
 
 // functions and event handlers:
 function decideMessageType() {
   if (!affirmSelect.checked && !mantraSelect.checked) {
-    window.alert("Slow down. You must first select either 'affirmation' or 'mantra' to receive a message!");
+    window.alert("Hey there, you've got to slow down! First, you must select either 'affirmation' or 'mantra' to receive a message. Blessings!");
   } else if (affirmSelect.checked) {
-    returnRandomAffirm();
+    returnRandomMessage(affirmations);
   } else if (mantraSelect.checked) {
-    returnRandomMantra();
+    returnRandomMessage(mantras);
   }
 };
 
@@ -61,17 +63,35 @@ function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 };
 
-function returnRandomAffirm() {
-  messageDisplayBox.innerHTML = `<p>${affirmations[getRandomIndex(affirmations)]}</p>`;
+function returnRandomMessage(array) {
+  messageDisplayBox.innerHTML = `<p>${array[getRandomIndex(array)]}</p>`;
   clearMessageBtn.classList.remove('hidden');
+  deleteMessageBtn.classList.remove('hidden');
 };
 
-function returnRandomMantra() {
-  messageDisplayBox.innerHTML = `<p>${mantras[getRandomIndex(mantras)]}</p>`;
-  clearMessageBtn.classList.remove('hidden');
-};
-
-function removeMessage() {
+function replaceMessageWithIcon() {
   messageDisplayBox.innerHTML = `<img src="./assets/meditate.svg" alt="Meditation Icon">`;
   clearMessageBtn.classList.add('hidden');
+  deleteMessageBtn.classList.add('hidden');
+};
+
+function confirmDeleteMessage() {
+  var currentMessage = messageDisplayBox.firstElementChild.innerText;
+  var answer = window.confirm("Woah! Are you sure you want to delete this message? You will not be able to see it again!");
+  if (answer) {
+    if (affirmSelect.checked) {
+      deleteMessage(currentMessage, affirmations);
+    } else if (mantraSelect.checked) {
+      deleteMessage(currentMessage, mantras);
+    }
+  }
+};
+
+function deleteMessage(message, array) {
+  for (var i = 0; i < array.length; i++) {
+    if (message === array[i]) {
+      array.splice(i, 1);
+    }
+  }
+  replaceMessageWithIcon();
 };

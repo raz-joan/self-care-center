@@ -75,8 +75,10 @@ button {
   white-space: nowrap;
 }
 
-#clear-button {
+#clear-button,
+#delete-button {
   padding: 0.5% 2.5%;
+  margin: 0.25% auto;
 }
 
 input {
