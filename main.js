@@ -44,6 +44,7 @@ var mantras = [
 
 // event listeners:
 receiveMessageBtn.addEventListener('click', decideMessageType);
+clearMessageBtn.addEventListener('click', removeMessage);
 
 // functions and event handlers:
 function decideMessageType() {
@@ -68,4 +69,9 @@ function returnRandomAffirm() {
 function returnRandomMantra() {
   messageDisplayBox.innerHTML = `<p>${mantras[getRandomIndex(mantras)]}</p>`;
   clearMessageBtn.classList.remove('hidden');
+};
+
+function removeMessage() {
+  messageDisplayBox.innerHTML = `<img src="./assets/meditate.svg" alt="Meditation Icon">`;
+  clearMessageBtn.classList.add('hidden');
 };
