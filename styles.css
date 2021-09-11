@@ -36,6 +36,7 @@ body {
 }
 
 #message-display {
+  font-size: large;
   width: 65%;
   padding-top: 3%;
   padding-bottom: 3%;
@@ -51,6 +52,7 @@ body {
 }
 
 .radio-buttons {
+  font-style: italic;
   width: 70%;
   margin-left: 10%;
   margin-bottom: 2%;
