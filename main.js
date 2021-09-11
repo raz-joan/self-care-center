@@ -56,3 +56,11 @@ function decideMessageType() {
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 };
+
+function returnRandomAffirm() {
+  messageDisplayBox.innerHTML = `<p>${affirmations[getRandomIndex(affirmations)]}</p>`;
+};
+
+function returnRandomMantra() {
+  messageDisplayBox.innerHTML = `<p>${mantras[getRandomIndex(mantras)]}</p>`;
+};
