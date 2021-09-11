@@ -3,6 +3,7 @@ var receiveMessageBtn = document.querySelector('button');
 var messageDisplayBox = document.querySelector('#message-display');
 var affirmSelect = document.querySelector('#affirmation-radio');
 var mantraSelect = document.querySelector('#mantra-radio');
+var clearMessageBtn = document.querySelector('#clear-button');
 
 // data models:
 var affirmations = [
@@ -61,8 +62,10 @@ function getRandomIndex(array) {
 
 function returnRandomAffirm() {
   messageDisplayBox.innerHTML = `<p>${affirmations[getRandomIndex(affirmations)]}</p>`;
+  clearMessageBtn.classList.remove('hidden');
 };
 
 function returnRandomMantra() {
   messageDisplayBox.innerHTML = `<p>${mantras[getRandomIndex(mantras)]}</p>`;
+  clearMessageBtn.classList.remove('hidden');
 };
