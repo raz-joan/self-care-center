@@ -46,7 +46,7 @@ var mantras = [
 // event listeners:
 receiveMessageBtn.addEventListener('click', decideMessageType);
 clearMessageBtn.addEventListener('click', replaceMessageWithIcon);
-deleteMessageBtn.addEventListener('click', deleteMessage);
+deleteMessageBtn.addEventListener('click', confirmDeleteMessage);
 
 // functions and event handlers:
 function decideMessageType() {
@@ -75,24 +75,39 @@ function replaceMessageWithIcon() {
   deleteMessageBtn.classList.add('hidden');
 };
 
-function deleteMessage() {
+function confirmDeleteMessage() {
   var currentMessage = messageDisplayBox.firstElementChild.innerText;
   var answer = window.confirm("Woah! Are you sure you want to delete this message? You will not be able to see it again!");
   if (answer) {
     if (affirmSelect.checked) {
-      for (var i = 0; i < affirmations.length; i++) {
-        if (currentMessage === affirmations[i]) {
-          affirmations.splice(i, 1);
-          replaceMessageWithIcon();
-        }
-      }
+      // for (var i = 0; i < affirmations.length; i++) {
+      //   if (currentMessage === affirmations[i]) {
+      //     affirmations.splice(i, 1);
+          deleteMessage(currentMessage, affirmations);
+          // replaceMessageWithIcon();
+        // }
+      // }
     } else if (mantraSelect.checked) {
-      for (var i = 0; i < mantras.length; i++) {
-        if (currentMessage === mantras[i]) {
-          mantras.splice(i, 1);
-          replaceMessageWithIcon();
+      // for (var i = 0; i < mantras.length; i++) {
+      //   if (currentMessage === mantras[i]) {
+      //     mantras.splice(i, 1);
+          deleteMessage(currentMessage, mantras);
+          // replaceMessageWithIcon();
         }
-      }
+  //     }
+  //   }
+  }
+};
+
+function deleteMessage(message, array) {
+  console.log(`deleting ${message} from the list: ${array}`)
+  for (var i = 0; i < array.length; i++) {
+    if (message === array[i]) {
+      console.log(array.length);
+      array.splice(i, 1);
+      console.log(`found it at ${i} and deleted it`);
+      console.log(array.length);
     }
   }
-}
+  replaceMessageWithIcon();
+};
