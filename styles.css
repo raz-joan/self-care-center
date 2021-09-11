@@ -26,7 +26,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: auto;
 }
 
 #message-choice {
@@ -40,6 +39,7 @@ body {
   width: 65%;
   padding-top: 3%;
   padding-bottom: 3%;
+  margin: 5% auto;
   white-space: nowrap;
 }
 
@@ -48,7 +48,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 5%;
+  margin: 3%;
 }
 
 .radio-buttons {
