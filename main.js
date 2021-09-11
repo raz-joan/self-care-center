@@ -77,34 +77,22 @@ function replaceMessageWithIcon() {
 
 function deleteMessage() {
   var currentMessage = messageDisplayBox.firstElementChild.innerText;
-  console.log(currentMessage);
-  console.log("length of mantras: ", mantras.length);
-  console.log("length of affirmations: ", affirmations.length);
   var answer = window.confirm("Woah! Are you sure you want to delete this message? You will not be able to see it again!");
   if (answer) {
-    console.log('confirm that okay means yes delete.')
     if (affirmSelect.checked) {
       for (var i = 0; i < affirmations.length; i++) {
         if (currentMessage === affirmations[i]) {
-          console.log(`found ${affirmations[i]} at ${i}and deleting it`)
           affirmations.splice(i, 1);
-          console.log("length of mantras: ", mantras.length);
-          console.log("length of affirmations: ", affirmations.length);
+          replaceMessageWithIcon();
         }
       }
     } else if (mantraSelect.checked) {
       for (var i = 0; i < mantras.length; i++) {
         if (currentMessage === mantras[i]) {
-          console.log(`found ${mantras[i]} at ${i}and deleting it`)
           mantras.splice(i, 1);
-          console.log("length of mantras: ", mantras.length);
-          console.log("length of affirmations: ", affirmations.length);
+          replaceMessageWithIcon();
         }
       }
-    } else {
-      console.log('something is wrong!')
     }
-  } else {
-    console.log('confirm that cancel means never mind - do nothing.')
   }
 }
