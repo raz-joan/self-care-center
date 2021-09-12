@@ -41,8 +41,6 @@ var mantras = [
   'I am the sky, the rest is weather.'
 ];
 
-// other variables:
-
 // event listeners:
 receiveMessageBtn.addEventListener('click', decideMessageType);
 clearMessageBtn.addEventListener('click', replaceMessageWithIcon);
