@@ -28,7 +28,7 @@ body {
   align-items: center;
 }
 
-#message-choice {
+.message-choice {
   width: 100%;
   padding-top: 3%;
   padding-bottom: 2%;
@@ -60,7 +60,7 @@ body {
   justify-content: space-between;
 }
 
-#button-container {
+.button-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
