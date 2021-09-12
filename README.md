@@ -5,7 +5,18 @@ How can I care for myself? One way is with affirmations and mantras! Affirmation
 
 The goals of this solo project were to build an application to match a provided comp using HTML and CSS. And then using JavaScript, to build out functionality so that the user can select to receive a random message that is either an affirmation or a mantra, to use error handling to ensure a selection is made before the button can be clicked, and to build a clear button to remove the message and replace it with the bell meditation icon.
 
-## Illustrations
+## Illustrations  
+Landing Page
+![Landing Page](assets/self-care-center-landing-page.png)  
+
+Receive Message
+![Receive Message](assets/self-care-center-receive-message.png)  
+
+No Selection Alert
+![No Selection Alert](assets/self-care-center-selection-alert.png)  
+
+Delete Message Confirmation
+![Delete Message Confirmation](assets/self-care-center-deletion-confirmation.png)  
 
 ## Technologies Used
 HTML, CSS, and JavaScript
