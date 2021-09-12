@@ -34,7 +34,7 @@ body {
   padding-bottom: 2%;
 }
 
-#message-display {
+.message-display {
   font-size: large;
   width: 65%;
   padding-top: 3%;
@@ -75,8 +75,7 @@ button {
   white-space: nowrap;
 }
 
-#clear-button,
-#delete-button {
+.other-button {
   padding: 0.5% 2.5%;
   margin: 0.25% auto;
 }
